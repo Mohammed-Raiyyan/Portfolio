@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Raiyyan</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(90deg, #ff512f, #dd2476);
+      color: white;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff512f;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 5rem auto 2rem;
+      padding: 0 1rem;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 100% 0%, rgba(255, 200, 200, 0.3), transparent), radial-gradient(circle at 0% 100%, rgba(200, 200, 255, 0.3), transparent);
+      z-index: 0;
+    }
+
+    section * {
+      position: relative;
+      z-index: 1;
+    }
+
+    section h2 {
+      color: #ff512f;
+      margin-bottom: 1rem;
+    }
+
+    section p,
+    section ul {
+      margin-bottom: 1rem;
+    }
+
+    section ul {
+      list-style-type: circle;
+      padding-left: 1.2rem;
+    }
+
+    section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 1rem;
+      object-fit: cover;
+      border: 4px solid #ff512f;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #ff512f;
+    }
+
+    .skills-bar {
+      margin-bottom: 1rem;
+    }
+
+    .skills-bar span {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .bar {
+      height: 20px;
+      width: 100%;
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #f6d365, #fda085);
+      animation: fill 2s forwards;
+    }
+
+    @keyframes fill {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: var(--width);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #ff512f;
+      color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .slide-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#career">Career</a>
+    <a href="#why">Why Me</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Mohammed Raiyyan</h1>
+    <p>Aspiring Developer | Problem Solver</p>
+  </header>
+
+  <div class="container">
+
+    <section id="about" class="slide-up">
+      <img width="48" height="48"
+        src="https://res.cloudinary.com/dth0hfqfa/image/upload/v1759054101/user_icon_aj8vyi.png"
+        alt="Mohammed Raiyyan Photo" class="profile">
+      <h2>About Me</h2>
+      <p>Hi! I am <span class="highlight">Mohammed Raiyyan</span>, born on May 10, 2007. Currently studying at <span
+          class="highlight">NTTF NEC Bangalore</span> pursuing a Diploma in Computer Engineering (IT Infrastructure),
+        Final Year – 5th Semester. Completed 10th in 2022-2023 from Narbada Devi Memorial School, Hospet, Karnataka.
+        Passionate about problem-solving and logical thinking.</p>
+    </section>
+
+    <section id="skills" class="slide-up">
+      <h2>Skills</h2>
+      <div class="skills-bar"><span>C</span>
+        <div class="bar">
+          <div class="progress" style="--width:90%;"></div>
+        </div>
+      </div>
+      <div class="skills-bar"><span>C++</span>
+        <div class="bar">
+          <div class="progress" style="--width:85%;"></div>
+        </div>
+      </div>
+      <div class="skills-bar"><span>Java</span>
+        <div class="bar">
+          <div class="progress" style="--width:80%;"></div>
+        </div>
+      </div>
+      <div class="skills-bar"><span>HTML</span>
+        <div class="bar">
+          <div class="progress" style="--width:90%;"></div>
+        </div>
+      </div>
+      <div class="skills-bar"><span>CSS</span>
+        <div class="bar">
+          <div class="progress" style="--width:85%;"></div>
+        </div>
+      </div>
+      <div class="skills-bar"><span>SQL (Basic)</span>
+        <div class="bar">
+          <div class="progress" style="--width:60%;"></div>
+        </div>
+      </div>
+      <div class="skills-bar"><span>IoT</span>
+        <div class="bar">
+          <div class="progress" style="--width:80%;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="slide-up">
+      <h2>Education</h2>
+      <ul>
+        <li>Diploma in Computer Engineering and IT Infrasturcture, Final Year – 5th Semester at NTTF NEC Bangalore</li>
+        <li>10th, 2022-2023 at Narbada Devi Memorial School, Hospet, Karnataka</li>
+      </ul>
+    </section>
+
+        <section id="education" class="slide-up">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Introduction to Networks, <b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1PjagPZv_Zt-j3jnNdH0XPdgOCWuTxSxa/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Introduction to Cybersecurity, <b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1K-sV_VF3B70yWZ1Xqjo9OmTM-GjSEwi4/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>IT Essentials: PC Hardware and Software, <b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1tn_b3GKOzkSw5tOzbaQ0V4quSrthm_oV/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Effective Speaking and Listening Skills, <b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1sKJv6x3LYPM0Zs37y5gNK-myUE5WleMp/view?usp=drive_link" target="_blank">🔗</a></li>
+      </ul>
+    </section>
+
+    <section id="hobbies" class="slide-up">
+      <h2>Hobbies & Interests</h2>
+      <ul>
+        <li>Staying fit and eating well</li>
+        <li>Playing outdoor and indoor games</li>
+        <li>Problem-solving and logical thinking</li>
+        <li>Interested in working as a developer</li>
+      </ul>
+    </section>
+
+    <section id="career" class="slide-up">
+      <h2>Career Goal</h2>
+      <p>Aspiring to work as a <span class="highlight">developer</span>, contributing to innovative projects and
+        continuously learning new technologies.</p>
+    </section>
+
+    <section id="why" class="slide-up">
+      <h2>Why Me?</h2>
+      <p>I have a strong foundation in programming and IT infrastructure, keen interest in problem-solving, and logical
+        approach to challenges. Motivated, disciplined, and eager to learn—ready to contribute effectively to any
+        development project.</p>
+    </section>
+
+    <section id="contact" class="slide-up">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:mohammadraiyyan90@gmail.com">mohammadraiyyan90@gmail.com</a></p>
+      <p>Phone: 7406291335</p>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Mohammed Raiyyan. All rights reserved.
+  </footer>
+
+  <script>
+    // Slide-up animation on scroll
+    const sections = document.querySelectorAll('.slide-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+
+</html>
