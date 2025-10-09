@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohammed Raiyyan</title>
   <style>
     /* Reset */
@@ -14,24 +14,95 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background: linear-gradient(135deg, #f6d365, #fda085);
-      color: #333;
+      background: linear-gradient(135deg, #0e0e0e, #2b2b2b);
+      color: #ddd;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(40, 40, 40, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.3s, transform 0.3s;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background: linear-gradient(90deg, #ff8c00, #ffb84d);
+      transform: scale(1.1);
+    }
+
+    /* Header */
     header {
       text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(90deg, #ff512f, #dd2476);
-      color: white;
+      padding: 6rem 1rem 3rem;
+      background: linear-gradient(90deg, #444, #666);
+      color: #eee;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      margin-top: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.15), transparent 70%);
+      animation: pulseGlow 5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from {
+        opacity: 0.3;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
+      text-shadow: 0 0 10px #ff8c00, 0 0 20px #ffb84d;
       margin-bottom: 0.5rem;
+      animation: fadeDown 1.5s ease;
+    }
+
+    @keyframes fadeDown {
+      from {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     header p {
@@ -39,79 +110,63 @@
       font-weight: 500;
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
+    /* Placement Highlight */
+    .placement-banner {
+      margin: 1rem auto;
+      background: linear-gradient(90deg, #ff8c00, #ffb84d);
+      color: #111;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      width: fit-content;
       font-weight: bold;
-      transition: 0.3s;
+      font-size: 1rem;
+      animation: fadeIn 2s ease;
+      box-shadow: 0 0 15px #ff8c00aa;
     }
 
-    nav a:hover {
-      color: #ff512f;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
+    /* Main Container */
     .container {
       max-width: 1000px;
-      margin: 5rem auto 2rem;
+      margin: 2rem auto 4rem;
       padding: 0 1rem;
     }
 
     section {
-      background: white;
+      background: #1d1d1d;
       margin-bottom: 2rem;
       padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
       position: relative;
       overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 100% 0%, rgba(255, 200, 200, 0.3), transparent), radial-gradient(circle at 0% 100%, rgba(200, 200, 255, 0.3), transparent);
-      z-index: 0;
-    }
-
-    section * {
-      position: relative;
-      z-index: 1;
+    section:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px #ff8c00aa;
     }
 
     section h2 {
-      color: #ff512f;
+      color: #ff8c00;
       margin-bottom: 1rem;
-    }
-
-    section p,
-    section ul {
-      margin-bottom: 1rem;
-    }
-
-    section ul {
-      list-style-type: circle;
-      padding-left: 1.2rem;
-    }
-
-    section ul li {
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      text-shadow: 0 0 8px #ffb84d;
+      border-bottom: 2px solid #ff8c00;
+      display: inline-block;
+      padding-bottom: 4px;
     }
 
     .profile {
@@ -119,14 +174,21 @@
       height: 150px;
       border-radius: 50%;
       display: block;
-      margin: 0 auto 1rem;
+      margin: 0 auto 1.5rem;
       object-fit: cover;
-      border: 4px solid #ff512f;
+      border: 4px solid #ff8c00;
+      box-shadow: 0 0 15px #ff8c00aa;
+      transition: transform 0.4s;
+    }
+
+    .profile:hover {
+      transform: scale(1.05);
     }
 
     .highlight {
       font-weight: bold;
-      color: #ff512f;
+      color: #ffb84d;
+      text-shadow: 0 0 6px #ff8c00;
     }
 
     .skills-bar {
@@ -137,12 +199,13 @@
       display: block;
       font-weight: bold;
       margin-bottom: 0.3rem;
+      color: #ffb84d;
     }
 
     .bar {
       height: 20px;
       width: 100%;
-      background: #eee;
+      background: #333;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -151,8 +214,9 @@
       height: 100%;
       width: 0;
       border-radius: 10px;
-      background: linear-gradient(90deg, #f6d365, #fda085);
+      background: linear-gradient(90deg, #ff8c00, #ffb84d);
       animation: fill 2s forwards;
+      box-shadow: 0 0 10px #ff8c00aa;
     }
 
     @keyframes fill {
@@ -168,10 +232,11 @@
     footer {
       text-align: center;
       padding: 1.5rem;
-      background: #ff512f;
-      color: white;
+      background: #111;
+      color: #ddd;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .slide-up {
@@ -185,18 +250,26 @@
       transform: translateY(0);
     }
 
-    a{
+    a {
       text-decoration: none;
+      color: #ffb84d;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #ff8c00;
     }
   </style>
 </head>
 
 <body>
-
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#achievements">Achievements</a>
     <a href="#hobbies">Hobbies</a>
     <a href="#career">Career</a>
     <a href="#why">Why Me</a>
@@ -206,19 +279,14 @@
   <header>
     <h1>Mohammed Raiyyan</h1>
     <p>Aspiring Developer | Problem Solver</p>
+    <div class="placement-banner">🎯 Attending Campus Placement at <b>Delta Electronics</b> via <b>NTTF NEC Bangalore</b></div>
   </header>
 
   <div class="container">
-
     <section id="about" class="slide-up">
-      <img width="48" height="48"
-        src="https://res.cloudinary.com/dth0hfqfa/image/upload/v1759054101/user_icon_aj8vyi.png"
-        alt="Mohammed Raiyyan Photo" class="profile">
+      <img src="https://res.cloudinary.com/dth0hfqfa/image/upload/v1759054101/user_icon_aj8vyi.png" alt="Mohammed Raiyyan Photo" class="profile" />
       <h2>About Me</h2>
-      <p>Hi! I am <span class="highlight">Mohammed Raiyyan</span>, born on May 10, 2007. Currently studying at <span
-          class="highlight">NTTF NEC Bangalore</span> pursuing a Diploma in Computer Engineering (IT Infrastructure),
-        Final Year – 5th Semester. Completed 10th in 2022-2023 from Narbada Devi Memorial School, Hospet, Karnataka.
-        Passionate about problem-solving and logical thinking.</p>
+      <p>Hi! I am <span class="highlight">Mohammed Raiyyan</span>, born on May 10, 2007. Currently studying at <span class="highlight">NTTF NEC Bangalore</span> pursuing a Diploma in Computer Engineering (IT Infrastructure), Final Year – 5th Semester. Completed 10th in 2022-2023 from Narbada Devi Memorial School, Hospet, Karnataka. Passionate about problem-solving and logical thinking.</p>
     </section>
 
     <section id="skills" class="slide-up">
@@ -258,12 +326,12 @@
           <div class="progress" style="--width:90%;"></div>
         </div>
       </div>
-      <div class="skills-bar"><span>Java Script</span>
+      <div class="skills-bar"><span>JavaScript</span>
         <div class="bar">
           <div class="progress" style="--width:90%;"></div>
         </div>
       </div>
-      <div class="skills-bar"><span>Cloud computing</span>
+      <div class="skills-bar"><span>Cloud Computing</span>
         <div class="bar">
           <div class="progress" style="--width:90%;"></div>
         </div>
@@ -273,34 +341,32 @@
     <section id="education" class="slide-up">
       <h2>Education</h2>
       <ul>
-        <li>Diploma in Computer Engineering and IT Infrasturcture, Final Year – 5th Semester at NTTF NEC Bangalore</li>
+        <li>Diploma in Computer Engineering and IT Infrastructure, Final Year – 5th Semester at <span class="highlight">NTTF NEC Bangalore</span></li>
         <li>10th, 2022-2023 at Narbada Devi Memorial School, Hospet, Karnataka</li>
       </ul>
     </section>
 
-        <section id="education" class="slide-up">
+    <section id="certifications" class="slide-up">
       <h2>Certifications</h2>
       <ul>
         <li>Introduction to Networks, <b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1PjagPZv_Zt-j3jnNdH0XPdgOCWuTxSxa/view?usp=drive_link" target="_blank">🔗</a></li>
         <li>Introduction to Cybersecurity, <b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1K-sV_VF3B70yWZ1Xqjo9OmTM-GjSEwi4/view?usp=drive_link" target="_blank">🔗</a></li>
         <li>IT Essentials: PC Hardware and Software, <b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1tn_b3GKOzkSw5tOzbaQ0V4quSrthm_oV/view?usp=drive_link" target="_blank">🔗</a></li>
         <li>Effective Speaking and Listening Skills, <b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1sKJv6x3LYPM0Zs37y5gNK-myUE5WleMp/view?usp=drive_link" target="_blank">🔗</a></li>
-        <li>Get Connected,<b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1z1fB62jLQK3ebsdV05pjvyQJLRJY2H3l/view?usp=drive_link" target="_blank">🔗</a></li>
-        <li>Impactful Writing Skills<b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1V5c4_fsIxS94qAZ5YPfU4TLZEm4gisw3/view?usp=drive_link" target="_blank">🔗</a></li>
-        <li>Interpersonal Skills<b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1JmO_sN9cortcCwKXJIrgfRG2IWu-zRz5/view?usp=drive_link" target="_blank">🔗</a></li>
-        <li>Problem Solving & Innovation<b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/19NxvGeZ5V7wMqW_BMTaWCbxsu3GDTyPb/view?usp=drive_link" target="_blank">🔗</a></li>
-        <li>Self-Management<b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1IVurLtbsxblCfURnu0p45cvbAdq2kFoD/view?usp=drive_link" target="_blank">🔗</a></li>
-        <li>Self-Presentation<b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1LqPCrVdVsSnu0mbZnwQG8MPeEXkXuAOq/view?usp=drive_link" target="_blank">🔗</a></li>
-
-        
+        <li>Get Connected, <b>CISCO Networking Academy</b> <a href="https://drive.google.com/file/d/1z1fB62jLQK3ebsdV05pjvyQJLRJY2H3l/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Impactful Writing Skills, <b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1V5c4_fsIxS94qAZ5YPfU4TLZEm4gisw3/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Interpersonal Skills, <b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1JmO_sN9cortcCwKXJIrgfRG2IWu-zRz5/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Problem Solving & Innovation, <b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/19NxvGeZ5V7wMqW_BMTaWCbxsu3GDTyPb/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Self-Management, <b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1IVurLtbsxblCfURnu0p45cvbAdq2kFoD/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Self-Presentation, <b>Wadhwani Foundation</b> <a href="https://drive.google.com/file/d/1LqPCrVdVsSnu0mbZnwQG8MPeEXkXuAOq/view?usp=drive_link" target="_blank">🔗</a></li>
       </ul>
     </section>
 
-    <section id="education" class="slide-up">
+    <section id="achievements" class="slide-up">
       <h2>Achievements</h2>
       <ul>
-        <li>Winner of CII - Work Skill Competition <b>Confederation of Indian Industry, Southern Region</b> <a href="https://drive.google.com/file/d/1FANMv7_HAX0KcoqzAME9rRV1n8X34LPh/view?usp=drive_link" target="_blank">🔗</a></li>
-        <li>Winner of Programming Skill Competition <b>World youth skill day, NTTF, NEC</b> <a href="https://drive.google.com/file/d/1oBCg6QG_IT1Nq3raT5wppvP8L7DSbu06/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Winner of CII - Work Skill Competition, <b>Confederation of Indian Industry, Southern Region</b> <a href="https://drive.google.com/file/d/1FANMv7_HAX0KcoqzAME9rRV1n8X34LPh/view?usp=drive_link" target="_blank">🔗</a></li>
+        <li>Winner of Programming Skill Competition, <b>World Youth Skill Day, NTTF, NEC</b> <a href="https://drive.google.com/file/d/1oBCg6QG_IT1Nq3raT5wppvP8L7DSbu06/view?usp=drive_link" target="_blank">🔗</a></li>
       </ul>
     </section>
 
@@ -316,43 +382,42 @@
     </section>
 
     <section id="career" class="slide-up">
-      <h2>Career Goal</h2>
-      <p>Aspiring to work as a <span class="highlight">software developer</span>, contributing to innovative projects and
-        continuously learning new technologies.</p>
+      <h2>Career Objective</h2>
+      <p>To work in a challenging environment where I can utilize my programming, problem-solving, and IT infrastructure skills to contribute effectively and grow professionally.</p>
     </section>
 
     <section id="why" class="slide-up">
       <h2>Why Me?</h2>
-      <p>I have a strong foundation in programming and IT infrastructure, keen interest in problem-solving, and logical
-        approach to challenges. Motivated, disciplined, and eager to learn—ready to contribute effectively to any
-        development project.</p>
+      <ul>
+        <li>Strong foundation in programming languages like <span class="highlight">C, C++, Java, and JavaScript</span></li>
+        <li>Good understanding of <span class="highlight">IT infrastructure and cloud computing</span></li>
+        <li>Passionate about learning and solving complex problems</li>
+        <li>Certified by reputable organizations such as <span class="highlight">CISCO and Wadhwani Foundation</span></li>
+        <li>Winner of recognized skill competitions</li>
+      </ul>
     </section>
 
     <section id="contact" class="slide-up">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:mohammadraiyyan90@gmail.com">mohammadraiyyan90@gmail.com</a></p>
-      <p>Phone: 7406291335</p>
-    </section>
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:mohammadraiyyan90@gamil.com">mohammadraiyyan90@gamil.com</a></p>
+  <p>Phone: +91 7406291335</p>
+</section>
 
-  </div>
-
-  <footer>
-    &copy; 2025 Mohammed Raiyyan. All rights reserved.
-  </footer>
+ 
 
   <script>
-    // Slide-up animation on scroll
-    const sections = document.querySelectorAll('.slide-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    // Scroll animation
+    const slideUpElements = document.querySelectorAll('.slide-up');
+    function checkVisibility() {
+      const triggerBottom = window.innerHeight * 0.85;
+      slideUpElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerBottom) el.classList.add('visible');
       });
-    }, { threshold: 0.1 });
-    sections.forEach(section => observer.observe(section));
+    }
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
   </script>
-
 </body>
 
 </html>
